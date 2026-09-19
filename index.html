@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thief Cat ($NAMI) — Nami will steal all the troubles and sadness from you</title>
+  <meta name="description" content="Thief Cat ($NAMI) on Solana. Nami will steal all the troubles and sadness from you. One cat. One fish. Zero sadness." />
+  <meta name="theme-color" content="#1C120C" />
+  <link rel="icon" href="logo.jpg" />
+  <link rel="apple-touch-icon" href="logo.jpg" />
+  <meta property="og:title" content="Thief Cat ($NAMI)" />
+  <meta property="og:description" content="Nami will steal all the troubles and sadness from you." />
+  <meta property="og:image" content="banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#140E0A",
+            night: "#1C120C",
+            crate: "#2A1A10",
+            hide: "#3A2416",
+            fur: "#C9A36A",
+            cream: "#F6E8C9",
+            sand: "#E8D4A8",
+            apricot: "#E39B5A",
+            teal: "#1F4542",
+            moss: "#2E5C57",
+            silver: "#D5DEE6",
+          },
+          fontFamily: {
+            display: ['"Alfa Slab One"', "cursive"],
+            cat: ['"Fredoka"', "sans-serif"],
+            marker: ['"Permanent Marker"', "cursive"],
+            body: ['"Nunito"', "sans-serif"],
+          },
+          boxShadow: {
+            gold: "0 0 40px rgba(201,163,106,0.28)",
+            leap: "0 24px 50px rgba(0,0,0,0.45)",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root { --ca: "9rbAB5BTo12TkKt5ed5SzUXjgBckkFmtcKdPDbMtpump"; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Nunito", sans-serif; }
+    ::selection { background: #C9A36A; color: #140E0A; }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #140E0A; }
+    ::-webkit-scrollbar-thumb { background: #C9A36A; border-radius: 99px; }
+
+    .grain::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 80;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.55'/></svg>");
+    }
+
+    .paw-bg {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 64 64'><g fill='%23C9A36A' fill-opacity='0.07'><ellipse cx='22' cy='18' rx='6' ry='7.5' transform='rotate(-18 22 18)'/><ellipse cx='32' cy='12' rx='6' ry='7.5'/><ellipse cx='42' cy='18' rx='6' ry='7.5' transform='rotate(18 42 18)'/><ellipse cx='16' cy='28' rx='5.5' ry='7' transform='rotate(-40 16 28)'/><ellipse cx='32' cy='40' rx='13' ry='11'/></g></svg>");
+    }
+
+    .spin-slow { animation: spin 22s linear infinite; }
+    .bob { animation: bob 3.6s ease-in-out infinite; }
+    .wiggle { animation: wiggle 2.4s ease-in-out infinite; }
+    .floaty { animation: floaty 7s ease-in-out infinite; }
+    .stamp-in { animation: stamp 0.8s cubic-bezier(.2,1.6,.3,1) both; }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+      50% { transform: translateY(-14px) rotate(1.5deg); }
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-12deg); }
+      50% { transform: rotate(10deg); }
+    }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+    @keyframes stamp {
+      0% { transform: scale(1.4) rotate(-18deg); opacity: 0; }
+      100% { transform: scale(1) rotate(-12deg); opacity: 1; }
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .marquee-track { animation: marquee 28s linear infinite; }
+
+    .crate-card {
+      background:
+        linear-gradient(180deg, rgba(58,36,22,0.92), rgba(26,16,10,0.94));
+      border: 1px solid rgba(201,163,106,0.28);
+      box-shadow:
+        inset 0 1px 0 rgba(246,232,201,0.08),
+        0 16px 40px rgba(0,0,0,0.35);
+    }
+
+    .ticket {
+      background:
+        radial-gradient(circle at 0 50%, transparent 12px, #F6E8C9 13px),
+        radial-gradient(circle at 100% 50%, transparent 12px, #F6E8C9 13px);
+      background-size: 51% 100%;
+      background-position: left, right;
+      background-repeat: no-repeat;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      animation: reveal 0.8s ease forwards;
+    }
+    @keyframes reveal {
+      to { opacity: 1; transform: none; }
+    }
+    .d1 { animation-delay: .05s; }
+    .d2 { animation-delay: .15s; }
+    .d3 { animation-delay: .25s; }
+    .d4 { animation-delay: .35s; }
+
+    .nav-blur {
+      background: rgba(20,14,10,0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .heist-line {
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(201,163,106,0.55) 0 10px,
+        transparent 10px 18px
+      );
+    }
+  </style>
+</head>
+<body class="grain bg-ink text-cream font-body antialiased overflow-x-hidden">
+  <!-- Background: logo + cat color wash -->
+  <div class="fixed inset-0 -z-10">
+    <img src="logo.jpg" alt="" class="h-full w-full object-cover scale-110 blur-[3px] opacity-50" />
+    <div class="absolute inset-0 bg-gradient-to-b from-ink/80 via-night/88 to-ink/96"></div>
+    <div class="absolute inset-0 paw-bg"></div>
+    <div class="absolute inset-0" style="background:
+      radial-gradient(ellipse at 18% 12%, rgba(201,163,106,0.22), transparent 42%),
+      radial-gradient(ellipse at 88% 78%, rgba(31,69,66,0.32), transparent 48%),
+      radial-gradient(ellipse at 50% 100%, rgba(227,155,90,0.10), transparent 40%);"></div>
+  </div>
+
+  <!-- Floating fish + paws -->
+  <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+    <svg class="absolute left-[8%] top-[22%] w-16 opacity-20 wiggle" viewBox="0 0 64 32" fill="none">
+      <path d="M4 16c8-10 18-12 28-8 8 3 12 3 20-4-4 8-4 12 0 20-8-7-12-7-20-4-10 4-20 2-28-8z" fill="#D5DEE6"/>
+      <circle cx="14" cy="15" r="1.6" fill="#140E0A"/>
+    </svg>
+    <svg class="absolute right-[10%] top-[58%] w-12 opacity-15 wiggle" style="animation-delay:-1s" viewBox="0 0 64 32" fill="none">
+      <path d="M4 16c8-10 18-12 28-8 8 3 12 3 20-4-4 8-4 12 0 20-8-7-12-7-20-4-10 4-20 2-28-8z" fill="#C9A36A"/>
+      <circle cx="14" cy="15" r="1.6" fill="#140E0A"/>
+    </svg>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 nav-blur border-b border-fur/15">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="logo.jpg" alt="Thief Cat logo" class="h-11 w-11 rounded-full object-cover ring-2 ring-fur/70 shadow-gold" />
+        <div class="leading-none">
+          <p class="font-display text-lg tracking-wide text-cream">THIEF CAT</p>
+          <p class="font-marker text-xs text-fur">$NAMI</p>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-7 text-sm font-extrabold tracking-wide text-sand md:flex">
+        <a href="#story" class="hover:text-fur transition">Story</a>
+        <a href="#buy" class="hover:text-fur transition">How to Buy</a>
+        <a href="#chart" class="hover:text-fur transition">Chart</a>
+        <a href="#community" class="hover:text-fur transition">Community</a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="https://t.me/ThiefCatPump" target="_blank" rel="noopener" class="rounded-full bg-white/5 p-1.5 ring-1 ring-white/10 hover:ring-fur/60 transition" title="Telegram">
+          <img src="tg.png" alt="Telegram" class="h-7 w-7 rounded-full" />
+        </a>
+        <a href="https://x.com/ThiefCatPump" target="_blank" rel="noopener" class="rounded-full bg-white/5 p-1.5 ring-1 ring-white/10 hover:ring-fur/60 transition" title="X">
+          <img src="x.png" alt="X / Twitter" class="h-7 w-7 rounded-full" />
+        </a>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=9rbAB5BTo12TkKt5ed5SzUXjgBckkFmtcKdPDbMtpump" target="_blank" rel="noopener"
+           class="hidden sm:inline-flex items-center gap-2 rounded-full bg-fur px-4 py-2 text-sm font-black text-ink shadow-gold hover:bg-cream transition">
+          Buy Now
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MARQUEE -->
+  <div class="relative z-10 overflow-hidden border-b border-fur/15 bg-teal/40">
+    <div class="marquee-track flex w-max gap-10 py-2 font-marker text-sm text-cream/90">
+      <span>Nami will steal all the troubles and sadness from you.</span>
+      <span>🐾 $NAMI</span>
+      <span>Grand theft fish</span>
+      <span>Stealing sadness since the market closed</span>
+      <span>One cat. One fish. Zero sadness.</span>
+      <span>Solana heist in progress</span>
+      <span>Nami will steal all the troubles and sadness from you.</span>
+      <span>🐾 $NAMI</span>
+      <span>Grand theft fish</span>
+      <span>Stealing sadness since the market closed</span>
+      <span>One cat. One fish. Zero sadness.</span>
+      <span>Solana heist in progress</span>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-10 md:grid-cols-2 md:px-6 md:pb-24 md:pt-16">
+      <div class="reveal d1">
+        <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-fur/30 bg-crate/70 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.18em] text-fur">
+          <span class="h-2 w-2 animate-pulse rounded-full bg-apricot"></span>
+          Wanted on Solana
+        </div>
+        <h1 class="font-display text-5xl leading-[0.95] text-cream drop-shadow-lg sm:text-6xl lg:text-7xl">
+          THIEF<br /><span class="text-fur">CAT</span>
+        </h1>
+        <p class="mt-2 font-marker text-2xl text-apricot sm:text-3xl">$NAMI</p>
+        <p class="mt-5 max-w-xl font-cat text-xl leading-snug text-sand sm:text-2xl">
+          Nami will steal all the troubles and sadness from you.
+        </p>
+        <p class="mt-3 max-w-lg text-sand/80">
+          The tabby outlaw of the fish market. She took the catch, the copium, and the cloud over your head — then ran it on-chain.
+        </p>
+
+        <div class="mt-7 flex flex-wrap items-center gap-3">
+          <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=9rbAB5BTo12TkKt5ed5SzUXjgBckkFmtcKdPDbMtpump" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 rounded-full bg-fur px-6 py-3 text-base font-black text-ink shadow-gold hover:scale-[1.03] hover:bg-cream transition">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.6 4 2 6 6 7-4 .8-5.4 3-6 7-.6-4-2-6.2-6-7 4-1 5.4-3 6-7zm7.5 12.2c.3 2 1 3 3 3.5-2 .4-2.7 1.5-3 3.5-.3-2-1-3.1-3-3.5 2-.5 2.7-1.5 3-3.5zM4.5 13c.25 1.6.8 2.4 2.4 2.8-1.6.3-2.15 1.2-2.4 2.8-.25-1.6-.8-2.5-2.4-2.8 1.6-.4 2.15-1.2 2.4-2.8z"/></svg>
+            Buy Now
+          </a>
+          <a href="https://dexscreener.com/solana/9rbAB5BTo12TkKt5ed5SzUXjgBckkFmtcKdPDbMtpump" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 rounded-full border border-fur/40 bg-teal/60 px-6 py-3 text-base font-black text-cream hover:bg-moss/80 hover:scale-[1.03] transition">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19V5m0 14h16M8 16l3.2-4.5 2.6 2.4L18 8"/></svg>
+            Chart
+          </a>
+        </div>
+
+        <!-- CA ticket -->
+        <div class="ticket mt-8 flex max-w-xl items-center justify-between gap-3 px-6 py-4 text-ink shadow-leap">
+          <div class="min-w-0">
+            <p class="text-[10px] font-black uppercase tracking-[0.22em] text-hide/70">Contract Address</p>
+            <p id="ca-text" class="truncate font-mono text-sm font-extrabold sm:text-base">9rbAB5BTo12TkKt5ed5SzUXjgBckkFmtcKdPDbMtpump</p>
+          </div>
+          <button type="button" id="copy-ca" class="shrink-0 rounded-full bg-hide px-4 py-2 text-xs font-black uppercase tracking-wider text-cream hover:bg-teal transition">
+            Copy CA
+          </button>
+        </div>
+        <p id="copy-toast" class="mt-2 h-5 text-sm font-bold text-fur opacity-0 transition">Nami copied the CA for you 🐾</p>
+      </div>
+
+      <div class="relative mx-auto reveal d2">
+        <div class="absolute -inset-6 rounded-full border border-dashed border-fur/40 spin-slow"></div>
+        <div class="absolute -inset-12 rounded-full border border-fur/10"></div>
+        <div class="bob relative">
+          <img src="logo.jpg" alt="Nami the Thief Cat running with a stolen fish" class="relative z-10 h-72 w-72 rounded-full object-cover ring-4 ring-fur shadow-gold sm:h-96 sm:w-96" />
+          <div class="stamp-in pointer-events-none absolute -right-2 top-6 z-20 rotate-[-12deg] rounded-md border-4 border-apricot/90 bg-ink/70 px-3 py-1 font-marker text-xl text-apricot sm:text-2xl">
+            WANTED
+          </div>
+          <div class="pointer-events-none absolute -left-3 bottom-8 z-20 rounded-full bg-cream px-3 py-1 font-marker text-sm text-ink shadow-leap">
+            fish acquired ✓
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER -->
+    <section class="relative border-y border-fur/20 bg-crate/40">
+      <div class="mx-auto max-w-7xl px-4 py-8 md:px-6">
+        <p class="mb-4 text-center font-marker text-fur">caught in 4K across every timeline</p>
+        <div class="overflow-hidden rounded-3xl border border-fur/25 shadow-leap">
+          <img src="banner.png" alt="NAMI banner collage — Thief Cat everywhere" class="w-full bg-white object-contain" />
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="mx-auto grid max-w-7xl grid-cols-2 gap-3 px-4 py-10 md:grid-cols-4 md:gap-5 md:px-6">
+      <div class="crate-card rounded-2xl p-5 text-center">
+        <p class="font-display text-2xl text-fur md:text-3xl">∞</p>
+        <p class="mt-1 text-xs font-extrabold uppercase tracking-widest text-sand/70">Fish stolen</p>
+      </div>
+      <div class="crate-card rounded-2xl p-5 text-center">
+        <p class="font-display text-2xl text-fur md:text-3xl">0</p>
+        <p class="mt-1 text-xs font-extrabold uppercase tracking-widest text-sand/70">Sadness left</p>
+      </div>
+      <div class="crate-card rounded-2xl p-5 text-center">
+        <p class="font-display text-2xl text-fur md:text-3xl">$NAMI</p>
+        <p class="mt-1 text-xs font-extrabold uppercase tracking-widest text-sand/70">Ticker</p>
+      </div>
+      <div class="crate-card rounded-2xl p-5 text-center">
+        <p class="font-display text-2xl text-fur md:text-3xl">SOL</p>
+        <p class="mt-1 text-xs font-extrabold uppercase tracking-widest text-sand/70">Chain</p>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section id="story" class="mx-auto max-w-7xl px-4 py-8 md:px-6 md:py-16">
+      <div class="grid items-start gap-8 lg:grid-cols-[1.1fr_.9fr]">
+        <div class="crate-card rounded-3xl p-7 md:p-10">
+          <p class="font-marker text-apricot">the heist</p>
+          <h2 class="mt-1 font-display text-3xl text-cream md:text-5xl">Meet Nami.</h2>
+          <p class="mt-5 text-lg leading-relaxed text-sand/90">
+            She didn’t ask. She didn’t wait. In the middle of a crowded market she grabbed the biggest fish, looked the camera dead in the eye, and vanished with your worries stuffed under the other paw.
+          </p>
+          <p class="mt-4 text-lg leading-relaxed text-sand/90">
+            <span class="font-cat text-fur">Nami will steal all the troubles and sadness from you.</span>
+            That’s not a slogan — that’s the job. $NAMI is the loot bag: a Solana meme for anyone ready to let a tabby outlaw run off with the heavy stuff.
+          </p>
+          <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+            <li class="rounded-2xl border border-fur/20 bg-ink/40 px-4 py-3 text-sm font-bold text-sand">🐾 Grand theft fish</li>
+            <li class="rounded-2xl border border-fur/20 bg-ink/40 px-4 py-3 text-sm font-bold text-sand">😼 Unauthorized joy</li>
+            <li class="rounded-2xl border border-fur/20 bg-ink/40 px-4 py-3 text-sm font-bold text-sand">🐟 Reckless copium</li>
+            <li class="rounded-2xl border border-fur/20 bg-ink/40 px-4 py-3 text-sm font-bold text-sand">💛 Sadness: seized</li>
+          </ul>
+        </div>
+
+        <!-- Wanted poster -->
+        <aside class="relative rounded-3xl bg-cream p-6 text-ink shadow-leap md:p-8">
+          <div class="absolute inset-3 rounded-2xl border-2 border-dashed border-hide/25"></div>
+          <div class="relative">
+            <p class="text-center font-display text-4xl tracking-widest text-hide">WANTED</p>
+            <img src="logo.jpg" alt="Nami mugshot" class="mx-auto mt-4 h-48 w-48 rounded-full object-cover ring-4 ring-hide/20" />
+            <p class="mt-4 text-center font-display text-2xl">NAMI THE THIEF</p>
+            <p class="text-center font-marker text-hide/70">alias: Thief Cat · $NAMI</p>
+            <dl class="mt-5 space-y-2 text-sm font-bold">
+              <div class="flex justify-between border-b border-hide/10 pb-2"><dt>Crime</dt><dd>Stealing troubles</dd></div>
+              <div class="flex justify-between border-b border-hide/10 pb-2"><dt>Last seen</dt><dd>Fish market, Solana</dd></div>
+              <div class="flex justify-between border-b border-hide/10 pb-2"><dt>Accomplice</dt><dd>One silver fish</dd></div>
+              <div class="flex justify-between"><dt>Reward</dt><dd>Your smile back</dd></div>
+            </dl>
+            <p class="mt-5 text-center font-marker text-lg text-hide">Do not approach. She already has your sadness.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- HOW TO BUY -->
+    <section id="buy" class="relative mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-20">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="font-marker text-apricot">the loot drop</p>
+        <h2 class="font-display text-4xl text-cream md:text-5xl">How to Buy</h2>
+        <p class="mt-3 text-sand/80">Four quiet steps. Then Nami handles the rest — including the sadness.</p>
+      </div>
+
+      <div class="relative mt-12 grid gap-5 md:grid-cols-4">
+        <div class="heist-line pointer-events-none absolute left-[12%] right-[12%] top-10 hidden h-[2px] md:block"></div>
+
+        <article class="crate-card relative rounded-3xl p-6 pt-8">
+          <div class="absolute -top-4 left-6 flex h-10 w-10 items-center justify-center rounded-full bg-fur font-display text-ink shadow-gold">1</div>
+          <div class="mb-4 text-3xl">🎒</div>
+          <h3 class="font-cat text-xl text-cream">Get a Solana wallet</h3>
+          <p class="mt-2 text-sm leading-relaxed text-sand/80">
+            Download <strong class="text-fur">Phantom</strong> or <strong class="text-fur">Solflare</strong> (browser or phone). This is your loot sack. Write down the seed phrase and hide it like a fish.
+          </p>
+        </article>
+
+        <article class="crate-card relative rounded-3xl p-6 pt-8">
+          <div class="absolute -top-4 left-6 flex h-10 w-10 items-center justify-center rounded-full bg-fur font-display text-ink shadow-gold">2</div>
+          <div class="mb-4 text-3xl">◎</div>
+          <h3 class="font-cat text-xl text-cream">Fill it with SOL</h3>
+          <p class="mt-2 text-sm leading-relaxed text-sand/80">
+            Buy SOL on any exchange or on-ramp, then send it to your wallet address. Keep a little extra SOL for network fees — heists aren’t free.
+          </p>
+        </article>
+
+        <article class="crate-card relative rounded-3xl p-6 pt-8">
+          <div class="absolute -top-4 left-6 flex h-10 w-10 items-center justify-center rounded-full bg-fur font-display text-ink shadow-gold">3</div>
+          <div class="mb-4 text-3xl">🚪</div>
+          <h3 class="font-cat text-xl text-cream">Open the hideout</h3>
+          <p class="mt-2 text-sm leading-relaxed text-sand/80">
+            Hit <strong class="text-fur">Buy Now</strong> to open Pump.fun with SOL already selected as input and $NAMI as output. Connect your wallet.
+          </p>
+        </article>
+
+        <article class="crate-card relative rounded-3xl p-6 pt-8">
+          <div class="absolute -top-4 left-6 flex h-10 w-10 items-center justify-center rounded-full bg-fur font-display text-ink shadow-gold">4</div>
+          <div class="mb-4 text-3xl">🐟</div>
+          <h3 class="font-cat text-xl text-cream">Swap SOL for $NAMI</h3>
+          <p class="mt-2 text-sm leading-relaxed text-sand/80">
+            Paste the CA if you need it, set your amount, confirm the swap. Nami sprints off with your troubles. You keep the bag.
+          </p>
+        </article>
+      </div>
+
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=9rbAB5BTo12TkKt5ed5SzUXjgBckkFmtcKdPDbMtpump" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-full bg-fur px-8 py-3.5 text-lg font-black text-ink shadow-gold hover:bg-cream hover:scale-[1.03] transition">
+          Buy $NAMI Now
+        </a>
+        <button type="button" id="copy-ca-2" class="inline-flex items-center gap-2 rounded-full border border-fur/40 px-6 py-3.5 font-black text-cream hover:bg-hide transition">
+          Copy CA
+        </button>
+      </div>
+    </section>
+
+    <!-- CHART -->
+    <section id="chart" class="mx-auto max-w-7xl px-4 py-8 md:px-6 md:py-16">
+      <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="font-marker text-apricot">live market</p>
+          <h2 class="font-display text-4xl text-cream">Chart</h2>
+          <p class="mt-1 text-sand/70">Dexscreener embed — watch the heist in real time.</p>
+        </div>
+        <a href="https://dexscreener.com/solana/9rbAB5BTo12TkKt5ed5SzUXjgBckkFmtcKdPDbMtpump" target="_blank" rel="noopener" class="rounded-full border border-fur/40 px-5 py-2 text-sm font-black text-cream hover:bg-teal/50 transition">
+          Open Dexscreener ↗
+        </a>
+      </div>
+      <div class="overflow-hidden rounded-3xl border border-fur/25 bg-ink shadow-leap">
+        <iframe
+          title="Dexscreener $NAMI chart"
+          src="https://dexscreener.com/solana/9rbAB5BTo12TkKt5ed5SzUXjgBckkFmtcKdPDbMtpump?embed=1&loadChartSettings=0&trades=1&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"
+          class="h-[420px] w-full md:h-[640px]"
+          style="border:0"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" class="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-20">
+      <div class="text-center">
+        <p class="font-marker text-apricot">join the crew</p>
+        <h2 class="font-display text-4xl text-cream md:text-5xl">The hideout</h2>
+        <p class="mx-auto mt-3 max-w-xl text-sand/80">Come for the fish. Stay because Nami already stole your FOMO.</p>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-2">
+        <a href="https://t.me/ThiefCatPump" target="_blank" rel="noopener" class="crate-card group flex items-center gap-5 rounded-3xl p-6 hover:border-fur/60 transition">
+          <img src="tg.png" alt="" class="h-16 w-16 rounded-full ring-2 ring-white/10 group-hover:scale-105 transition" />
+          <div>
+            <p class="font-cat text-2xl text-cream">Telegram</p>
+            <p class="text-sand/70">t.me/ThiefCatNAMI — daily heist briefings.</p>
+          </div>
+        </a>
+        <a href="https://x.com/ThiefCatPump" target="_blank" rel="noopener" class="crate-card group flex items-center gap-5 rounded-3xl p-6 hover:border-fur/60 transition">
+          <img src="x.png" alt="" class="h-16 w-16 rounded-full ring-2 ring-white/10 group-hover:scale-105 transition" />
+          <div>
+            <p class="font-cat text-2xl text-cream">X / Twitter</p>
+            <p class="text-sand/70">@ThiefCatNAMIX — on the run, posting receipts.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-fur/15 bg-ink/80 pb-24 md:pb-0">
+    <div class="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-10 text-center md:px-6">
+      <img src="logo.jpg" alt="" class="h-14 w-14 rounded-full object-cover ring-2 ring-fur/50" />
+      <p class="font-display text-xl text-cream">THIEF CAT · $NAMI</p>
+      <p class="font-marker text-fur">Nami will steal all the troubles and sadness from you.</p>
+      <p class="max-w-lg text-xs text-sand/50">
+        $NAMI is a meme token on Solana. Not financial advice. Nami steals sadness — not responsibility for your bags.
+      </p>
+      <p class="text-xs text-sand/40">© 2026 Thief Cat. All fish reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Mobile buy bar -->
+  <div class="fixed inset-x-0 bottom-0 z-40 border-t border-fur/20 bg-ink/90 p-3 backdrop-blur md:hidden">
+    <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=9rbAB5BTo12TkKt5ed5SzUXjgBckkFmtcKdPDbMtpump" target="_blank" rel="noopener"
+       class="flex items-center justify-center rounded-full bg-fur py-3 font-black text-ink">
+      Buy Now
+    </a>
+  </div>
+
+  <script>
+    const CA = "9rbAB5BTo12TkKt5ed5SzUXjgBckkFmtcKdPDbMtpump";
+
+    async function copyCA() {
+      try {
+        await navigator.clipboard.writeText(CA);
+      } catch {
+        const ta = document.createElement("textarea");
+        ta.value = CA;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+      }
+      const toast = document.getElementById("copy-toast");
+      toast.style.opacity = "1";
+      [document.getElementById("copy-ca"), document.getElementById("copy-ca-2")].forEach((btn) => {
+        const prev = btn.textContent;
+        btn.textContent = "Copied ✓";
+        setTimeout(() => { btn.textContent = prev; }, 1600);
+      });
+      setTimeout(() => { toast.style.opacity = "0"; }, 2200);
+    }
+
+    document.getElementById("copy-ca").addEventListener("click", copyCA);
+    document.getElementById("copy-ca-2").addEventListener("click", copyCA);
+  </script>
+</body>
+</html>
